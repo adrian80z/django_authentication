@@ -1,12 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Django Auth</title>
+    <title>{% block page_title%}</title>
 </head>
+
 <body>
-    <h1>User Login</h1>
+    <h1>{% block page_heading %}{% endblock %}</h1>
+
     <nav>
         <ul>
             <li><a href="{% url 'login' %}">Login</a></li>
@@ -19,16 +19,11 @@
     {% if messages %}
     <div>
         {% for message in messages %}
-            {{ message }}
+        {{ message }}
         {% endfor %}
     </div>
     {% endif %}
 
-    <form method="POST">
-        {% csrf_token %}
-        {{ login_form }}
-        <button type="submit">Login</button>
-    </form>
-
 </body>
+
 </html>
